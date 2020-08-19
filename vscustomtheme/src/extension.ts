@@ -1,21 +1,26 @@
-// Import the module and reference it with the alias vscode in your code below
 import * as vscode from 'vscode';
 
 export function activate(context: vscode.ExtensionContext) {
 
-	console.log('Congratulations, your extension "vscustomtheme" is now active!');
+	const command = "vscustomtheme.comment";
 
-	let time = getCurrentTime();
+	const commandHandler = (name: string = "world") => {
+		console.log(`${new Date()} -> Hello ${name}`);
+	 };
 
-	context.subscriptions.push(time);
+	 const registrationDescriptor = vscode.commands.registerCommand(command, commandHandler);
+	 const time = getCurrentTime();
+
+	 context.subscriptions.push(registrationDescriptor);
+	 context.subscriptions.push(time);
+
+}
+
+function getCurrentTime() {
+	return vscode.commands.registerCommand("vscustomtheme.time", () => {
+		const currentTime = new Date();
+		vscode.window.showInformationMessage(`Time is ${currentTime.toLocaleTimeString()}`);
+	});
 }
 
 export function deactivate() { }
-
-
-function getCurrentTime(){
-	return vscode.commands.registerCommand("vscustomtheme.time", () => {
-		const currentTime = new Date();
-		vscode.window.showInformationMessage(`Time is ${currentTime.toLocaleTimeString()}` );
-	});
-}

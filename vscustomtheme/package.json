@@ -10,7 +10,8 @@
 		"Other"
 	],
 	"activationEvents": [
-		"onCommand:vscustomtheme.time"
+		"onCommand:vscustomtheme.time",
+		"onCommand:vscustomtheme.comment"
 	],
 	"main": "./out/extension.js",
 	"contributes": {
@@ -18,8 +19,20 @@
 			{
 				"command": "vscustomtheme.time",
 				"title": "Current Time"
+			},
+			{
+				"command": "vscustomtheme.comment",
+				"title": "Comment Line"
 			}
-		]
+		],
+		"menus": {
+			"commandPalette": [
+				{
+					"command": "vscustomtheme.comment",
+					"when": "editorLangId == markdown"
+				}
+			]	
+		}
 	},
 	"scripts": {
 		"vscode:prepublish": "yarn run compile",
