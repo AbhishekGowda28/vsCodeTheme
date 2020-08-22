@@ -1,8 +1,13 @@
 {
     "name": "dinnertheme",
     "displayName": "DinnerTheme",
-    "description": "",
+    "description": "My custom Theme",
     "version": "0.0.1",
+    "publisher": "some",
+    "repository": {
+        "url": "https://github.com/AbhishekGowda28/vscode-theme",
+        "directory": "dinnertheme"
+    },
     "engines": {
         "vscode": "^1.48.0"
     },
