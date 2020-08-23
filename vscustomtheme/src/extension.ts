@@ -6,13 +6,13 @@ export function activate(context: vscode.ExtensionContext) {
 
 	const commandHandler = (name: string = "world") => {
 		console.log(`${new Date()} -> Hello ${name}`);
-	 };
+	};
 
-	 const registrationDescriptor = vscode.commands.registerCommand(command, commandHandler);
-	 const time = getCurrentTime();
+	const registrationDescriptor = vscode.commands.registerCommand(command, commandHandler);
+	const time = getCurrentTime();
 
-	 context.subscriptions.push(registrationDescriptor);
-	 context.subscriptions.push(time);
+	context.subscriptions.push(registrationDescriptor);
+	context.subscriptions.push(time);
 
 }
 
