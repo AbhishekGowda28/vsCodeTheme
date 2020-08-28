@@ -3,9 +3,14 @@
 	"displayName": "tellMeTheTime",
 	"description": "Anounce the time every specified number of time unit",
 	"version": "0.0.1",
+	"publisher": "some",
 	"engines": {
 		"vscode": "^1.48.0"
 	},
+	"repository": {
+        "url": "https://github.com/AbhishekGowda28/vscode-theme",
+        "directory": "tellmethetime"
+    },
 	"categories": [
 		"Other"
 	],
@@ -18,7 +23,7 @@
 		"commands": [
 			{
 				"command": "tellmethetime.time",
-				"title": "Tell Time"
+				"title": "Announce Time"
 			},
 			{
 				"command": "tellmethetime.stopTime",
