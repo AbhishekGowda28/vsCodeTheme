@@ -3,11 +3,25 @@ import * as vscode from 'vscode';
 
 let interval: NodeJS.Timeout;
 export function activate(context: vscode.ExtensionContext) {
-	const timeInterval = 1000 * 60; // Every 1 Hour
+	let defaultTime = 10;
+	const toMinutes = 1000 * 60;
+	let timeInterval = toMinutes * defaultTime; // Every 1 Hour
 	let startTime = vscode.commands.registerCommand('tellmethetime.time', (props) => {
-		console.log(props);
-		telltime();
-		interval = setInterval(telltime, timeInterval);
+		clearInterval(interval);
+		const quickPick = vscode.window.createInputBox();
+		quickPick.prompt = "Enter Time interval in minutes";
+		quickPick.show();
+		let intervalValue = "";
+		quickPick.onDidChangeValue((changeValue) => {
+			intervalValue = changeValue;
+		});
+		quickPick.onDidAccept(() => {
+			quickPick.hide();
+			timeInterval = toMinutes * Number(intervalValue);
+			telltime();
+			interval = setInterval(telltime, timeInterval);
+		});
+		quickPick.onDidHide(() => quickPick.dispose());
 	});
 
 	const stopTime = vscode.commands.registerCommand("tellmethetime.stopTime", () => {
@@ -31,5 +45,9 @@ function telltime() {
 function getCurrentTime() {
 	const date = new Date();
 	const hour = date.getHours() > 12 ? date.getHours() - 12 : date.getHours();
-	return `${hour}:${date.getMinutes()}`;
+	let minutes: string | number = date.getMinutes();
+	if (minutes < 9) {
+		minutes = `0${minutes}`;
+	}
+	return `${hour}:${minutes}`;
 }
