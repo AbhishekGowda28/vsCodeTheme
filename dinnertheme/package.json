@@ -1,26 +1,26 @@
 {
-    "name": "dinnertheme",
-    "displayName": "DinnerTheme",
-    "description": "My custom Theme",
-    "version": "0.0.1",
-    "publisher": "some",
-    "repository": {
-        "url": "https://github.com/AbhishekGowda28/vscode-theme",
-        "directory": "dinnertheme"
-    },
-    "engines": {
-        "vscode": "^1.48.0"
-    },
-    "categories": [
-        "Themes"
-    ],
-    "contributes": {
-        "themes": [
-            {
-                "label": "DinnerDark",
-                "uiTheme": "vs-dark",
-                "path": "./themes/DinnerDark-color-theme.json"
-            }
-        ]
-    }
+  "name": "dinnertheme",
+  "displayName": "DinnerTheme",
+  "description": "My custom Theme",
+  "version": "0.0.2",
+  "publisher": "AbhishekGowda28",
+  "repository": {
+    "url": "https://github.com/AbhishekGowda28/vscode-theme",
+    "directory": "dinnertheme"
+  },
+  "engines": {
+    "vscode": "^1.48.0"
+  },
+  "categories": [
+    "Themes"
+  ],
+  "contributes": {
+    "themes": [
+      {
+        "label": "DinnerDark",
+        "uiTheme": "vs-dark",
+        "path": "./themes/DinnerDark-color-theme.json"
+      }
+    ]
+  }
 }

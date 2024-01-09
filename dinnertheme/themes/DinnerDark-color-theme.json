@@ -23,6 +23,8 @@
 		"activityBar.background": "#21252B",
 		"sideBar.background": "#23262c",
 		"tree.indentGuidesStroke": "#4c75a3",
+		"tab.activeBackground": "#255d9d",
+		"tab.activeBorder": "#40abf2"
 	},
 	"tokenColors": [
 		{
